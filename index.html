@@ -599,7 +599,7 @@
             chatWindow.scrollTop = chatWindow.scrollHeight;
 
             try {
-                const response = await fetch('http://localhost:3000/api/chat', {
+                const response = await fetch('https://sample-blush-three.vercel.app/', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ prompt: userText }),
@@ -704,3 +704,4 @@ document.addEventListener('DOMContentLoaded', () => {
 </html>s
 
 </html>
+
