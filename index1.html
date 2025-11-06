@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sustainovate: Green Innovation Hub</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        /* =======================================================
+           0. Base & Utility Styles
+           ======================================================= */
+        :root {
+            --color-primary-green: #2e7d32; /* Deep Forest Green */
+            --color-secondary-teal: #00897b; /* Teal */
+            --color-accent-yellow: #ffb300; /* Vibrant Yellow/Orange */
+            --color-light-bg: #f5fcfc; /* Very light blue-green */
+            --color-white: #ffffff;
+            --color-text-dark: #333333;
+            --color-text-light: #555555;
+            --header-height: 70px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: var(--color-light-bg);
+            color: var(--color-text-light);
+            line-height: 1.6;
+            margin-top: var(--header-height); /* Space for fixed header */
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 25px;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--color-primary-green);
+            margin-bottom: 20px;
+        }
+
+        h1 { font-size: 3.2em; }
+        h2 { font-size: 2.5em; }
+        h3 { font-size: 1.8em; }
+
+        a {
+            text-decoration: none;
+            color: var(--color-secondary-teal);
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: var(--color-primary-green);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--color-accent-yellow);
+            color: var(--color-text-dark);
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .cta-button:hover {
+            background-color: #ffc107; /* Slightly darker yellow */
+            transform: translateY(-2px);
+            color: var(--color-text-dark); /* Keep text dark */
+        }
+
+        /* =======================================================
+           1. Header (Navigation)
+           ======================================================= */
+        header {
+            background-color: var(--color-white);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+            padding: 15px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: var(--header-height);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8em;
+            font-weight: 700;
+            color: var(--color-primary-green);
+            display: flex;
+            align-items: center;
+        }
+        .logo i {
+            color: var(--color-secondary-teal);
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+
+        nav a {
+            margin-left: 30px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            color: var(--color-text-light);
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        nav a:hover {
+            color: var(--color-primary-green);
+        }
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--color-secondary-teal);
+            transition: width 0.3s ease;
+        }
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* =======================================================
+           2. Section Styling
+           ======================================================= */
+        .content-section {
+            padding: 80px 0;
+            text-align: center;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .content-section:last-child {
+            border-bottom: none;
+        }
+
+        .section-title {
+            font-size: 2.8em;
+            margin-bottom: 15px;
+            color: var(--color-primary-green);
+        }
+        .content-section p {
+            max-width: 800px;
+            margin: 0 auto 30px auto;
+            line-height: 1.8;
+            font-size: 1.1em;
+            color: var(--color-text-light);
+        }
+        
+        /* Hero Specific */
+        .hero-section {
+            background: linear-gradient(135deg, var(--color-light-bg) 0%, #d4edea 100%);
+            padding-top: 150px; /* More space for hero */
+            padding-bottom: 100px;
+        }
+        .hero-section h1 {
+            color: var(--color-secondary-teal);
+            font-size: 4em;
+            margin-bottom: 10px;
+        }
+        .hero-section p {
+            font-size: 1.3em;
+            color: #4a6a6a;
+            margin-bottom: 40px;
+        }
+
+        /* =======================================================
+           3. AI Lab Chat Interface
+           ======================================================= */
+        .chat-container {
+            max-width: 700px;
+            margin: 40px auto;
+            background-color: var(--color-white);
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chat-window {
+            height: 400px;
+            overflow-y: auto;
+            padding: 20px;
+            background-color: #f0fcfb; /* Very light teal background for chat */
+            border-bottom: 1px solid #e0f0ef;
+        }
+
+        .chat-message {
+            display: flex;
+            margin-bottom: 15px;
+            align-items: flex-end; /* Align avatars/icons at bottom */
+        }
+
+        .chat-message.user-message {
+            justify-content: flex-end;
+        }
+        .chat-message.bot-message {
+            justify-content: flex-start;
+        }
+
+        .message-content {
+            max-width: 75%;
+            padding: 12px 18px;
+            border-radius: 20px;
+            font-size: 1.05em;
+            line-height: 1.4;
+            position: relative;
+        }
+
+        .bot-message .message-content {
+            background-color: var(--color-secondary-teal);
+            color: var(--color-white);
+            border-bottom-left-radius: 5px; /* Pointy corner for bot */
+            margin-left: 10px; /* Space for potential avatar */
+        }
+        .user-message .message-content {
+            background-color: #e0e0e0; /* Light gray for user */
+            color: var(--color-text-dark);
+            border-bottom-right-radius: 5px; /* Pointy corner for user */
+            margin-right: 10px; /* Space for potential avatar */
+        }
+
+        .chat-input-form {
+            display: flex;
+            padding: 20px;
+            background-color: #f7fcfc; /* Slightly darker input background */
+            border-top: 1px solid #e0e0e0;
+        }
+        .chat-input-form input {
+            flex-grow: 1;
+            padding: 12px 20px;
+            border: 1px solid #ccc;
+            border-radius: 25px;
+            font-size: 1.1em;
+            margin-right: 10px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+        .chat-input-form input:focus {
+            border-color: var(--color-secondary-teal);
+        }
+        .chat-input-form button {
+            background-color: var(--color-primary-green);
+            color: var(--color-white);
+            border: none;
+            border-radius: 25px;
+            padding: 12px 20px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .chat-input-form button:hover {
+            background-color: #216a24;
+            transform: translateY(-1px);
+        }
+        .chat-input-form button i {
+            margin: 0; /* Remove default icon margin */
+        }
+
+        /* =======================================================
+           4. Idea Submission Form
+           ======================================================= */
+        .submission-form {
+            max-width: 700px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: var(--color-white);
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+            text-align: left;
+        }
+
+        .submission-form label {
+            display: block;
+            font-weight: 600;
+            margin-top: 20px;
+            margin-bottom: 8px;
+            color: var(--color-primary-green);
+            font-size: 1.1em;
+        }
+
+        .submission-form input[type="text"],
+        .submission-form input[type="email"],
+        .submission-form select,
+        .submission-form textarea {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #dcdcdc;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 1em;
+            color: var(--color-text-dark);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .submission-form input:focus,
+        .submission-form select:focus,
+        .submission-form textarea:focus {
+            border-color: var(--color-secondary-teal);
+            box-shadow: 0 0 0 3px rgba(0, 137, 123, 0.2); /* Teal focus glow */
+            outline: none;
+        }
+
+        .submission-form textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submission-form fieldset {
+            border: 1px solid #b2dfdb; /* Lighter teal border */
+            padding: 25px;
+            margin-top: 30px;
+            border-radius: 10px;
+            background-color: #e0f2f1; /* Very light teal background */
+        }
+
+        .submission-form legend {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: var(--color-primary-green);
+            padding: 0 10px;
+            margin-left: -10px; /* Offset to align with fieldset */
+        }
+
+        .submit-button {
+            display: block;
+            width: 100%;
+            background-color: var(--color-primary-green);
+            color: var(--color-white);
+            padding: 16px 25px;
+            margin-top: 30px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.2em;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .submit-button:hover {
+            background-color: #216a24; /* Darker green */
+            transform: translateY(-2px);
+        }
+
+        #submissionMessage {
+            text-align: center;
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 20px;
+            font-weight: 600;
+            font-size: 1.05em;
+            transition: all 0.3s ease;
+        }
+
+        .message-success {
+            background-color: #e8f5e9; /* Light green */
+            color: #2e7d32; /* Primary green */
+        }
+        .message-error {
+            background-color: #ffebee; /* Light red */
+            color: #c62828; /* Dark red */
+        }
+        .message-warning {
+            background-color: #fffde7; /* Light yellow */
+            color: #fbc02d; /* Dark yellow */
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* =======================================================
+           5. Footer
+           ======================================================= */
+        footer {
+            background-color: var(--color-primary-green);
+            color: var(--color-white);
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 60px;
+            font-size: 0.95em;
+        }
+        footer p {
+            margin: 0;
+        }
+
+        /* =======================================================
+           6. Responsive Design
+           ======================================================= */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5em; }
+            h2 { font-size: 2em; }
+            .hero-section h1 { font-size: 3em; }
+
+            header {
+                flex-direction: column;
+                height: auto;
+                padding: 15px;
+            }
+            .logo {
+                margin-bottom: 15px;
+            }
+            nav {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            nav a {
+                margin: 0 15px 10px 15px;
+            }
+            body {
+                margin-top: 0; /* Adjust for non-fixed header on small screens */
+            }
+            .content-section {
+                padding: 60px 0;
+            }
+            .chat-container, .submission-form {
+                margin: 20px auto;
+                padding: 15px;
+                border-radius: 10px;
+            }
+            .chat-window {
+                height: 300px;
+                padding: 15px;
+            }
+            .chat-input-form {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .chat-input-form input {
+                margin-right: 0;
+            }
+            .chat-input-form button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <i class="fas fa-leaf"></i> Sustainovate
+        </div>
+        <nav>
+            <a href="#welcome-section">Home</a>
+            <a href="#ai-lab">AI Lab</a>
+            <a href="#submission-section">Submit Idea</a>
+            <a href="#community-section">Community</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="welcome-section" class="content-section hero-section">
+            <div class="container">
+                <h1>Accelerating Green Innovation</h1>
+                <p>Your collaborative platform for discovering, submitting, and refining sustainable product and business ideas with AI assistance.</p>
+                <a href="#submission-section" class="cta-button">Submit Your Idea <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </section>
+
+        <section id="ai-lab" class="content-section">
+            <div class="container">
+                <h2 class="section-title"><i class="fas fa-brain"></i> AI Lab: Consult Sustaina-Bot</h2>
+                <p>Get instant advice on **eco-friendly materials**, sustainable processes, and green technology from our intelligent assistant.</p>
+                
+                <div class="chat-container">
+                    <div id="chatWindow" class="chat-window">
+                        <div class="chat-message bot-message">
+                            <span class="message-content">Hello! I am Sustaina-Bot, ready to help you greenify your innovations. What's on your mind?</span>
+                        </div>
+                    </div>
+                    
+                    <form class="chat-input-form" onsubmit="sendMessage(event)">
+                        <input type="text" id="userInput" placeholder="Ask Sustaina-Bot a question...">
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section id="submission-section" class="content-section">
+            <div class="container">
+                <h2 class="section-title"><i class="fas fa-lightbulb"></i> Submit Your Green Innovation</h2>
+                <p>Have an idea that can change the world? Share it with the Sustainovate community and get valuable feedback!</p>
+
+                <form id="ideaSubmissionForm" class="submission-form">
+
+                    <label for="ideaTitle">Idea Title <span class="required">*</span></label>
+                    <input type="text" id="ideaTitle" name="ideaTitle" placeholder="e.g., Ocean Plastic Upcycling Plant" required>
+
+                    <label for="category">Category <span class="required">*</span></label>
+                    <select id="category" name="category" required>
+                        <option value="" disabled selected>Select a Category</option>
+                        <option value="Material Innovation">Material Innovation</option>
+                        <option value="Process Optimization">Process Optimization</option>
+                        <option value="Product Design">Product Design</option>
+                        <option value="Renewable Energy">Renewable Energy</option>
+                        <option value="Waste Management">Waste Management</option>
+                        <option value="Circular Economy">Circular Economy</option>
+                        <option value="Other">Other</option>
+                    </select>
+
+                    <label for="ideaDescription">Detailed Description <span class="required">*</span></label>
+                    <textarea id="ideaDescription" name="ideaDescription" rows="8" 
+                              placeholder="Clearly describe your innovation, the problem it solves, its unique features, and its sustainable impact." required></textarea>
+
+                    <label for="impactMetric">Key Sustainable Impact (Optional)</label>
+                    <input type="text" id="impactMetric" name="impactMetric" placeholder="e.g., Reduces carbon emissions by 30% annually">
+
+                    <fieldset>
+                        <legend><i class="fas fa-user-circle"></i> Your Details (Optional)</legend>
+                        <label for="submitterName">Your Name/Organization</label>
+                        <input type="text" id="submitterName" name="submitterName" placeholder="John Doe / GreenTech Solutions">
+                        <label for="submitterEmail">Email Address</label>
+                        <input type="email" id="submitterEmail" name="submitterEmail" placeholder="your.email@example.com">
+                    </fieldset>
+
+                    <button type="submit" class="submit-button">Submit Idea <i class="fas fa-paper-plane"></i></button>
+
+                    <p id="submissionMessage" class="hidden"></p>
+                </form>
+            </div>
+        </section>
+
+        <section id="community-section" class="content-section">
+            <div class="container">
+                <h2 class="section-title"><i class="fas fa-users"></i> Join the Sustainovate Community</h2>
+                <p>Explore, vote, and collaborate on groundbreaking sustainable ideas from around the world. Be part of the change!</p>
+                <a href="#" class="cta-button">Explore Ideas <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Sustainovate. All rights reserved. <i class="fas fa-seedling"></i> Powered by Innovation & Gemini AI.</p>
+        </div>
+    </footer>
+
+    <script>
+        // =======================================================
+        // 1. AI CHAT CONNECTION (REAL GEMINI API via Node.js Backend)
+        // =======================================================
+        async function sendMessage(event) {
+            event.preventDefault(); 
+            
+            const inputField = document.getElementById('userInput');
+            const chatWindow = document.getElementById('chatWindow');
+            const userText = inputField.value.trim();
+
+            if (userText === '') return;
+
+            // Add user message
+            const userMsgDiv = document.createElement('div');
+            userMsgDiv.className = 'chat-message user-message';
+            userMsgDiv.innerHTML = `<span class="message-content">${userText}</span>`;
+            chatWindow.appendChild(userMsgDiv);
+            chatWindow.scrollTop = chatWindow.scrollHeight; 
+
+            // Clear input immediately
+            inputField.value = '';
+
+            // Create a temporary "thinking" message for the bot
+            const botMsgDiv = document.createElement('div');
+            botMsgDiv.className = 'chat-message bot-message';
+            const messageContent = document.createElement('span');
+            messageContent.className = 'message-content';
+            messageContent.textContent = '...Sustaina-Bot is thinking...'; 
+            botMsgDiv.appendChild(messageContent);
+            chatWindow.appendChild(botMsgDiv);
+            chatWindow.scrollTop = chatWindow.scrollHeight;
+
+            try {
+                const response = await fetch('http://localhost:3000/api/chat', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ prompt: userText }),
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const data = await response.json();
+                const aiResponseText = data.text; 
+
+                // Update the bot's message with the real AI response
+                messageContent.textContent = aiResponseText;
+
+            } catch (error) {
+                console.error('Frontend Fetch Error:', error);
+                messageContent.textContent = 'Sorry, the AI server is offline or had an error. Please check your Node.js console and ensure the backend is running.';
+                messageContent.classList.add('message-error'); // Add error styling
+            }
+
+            chatWindow.scrollTop = chatWindow.scrollHeight;
+        }
+
+        // =======================================================
+        // 2. IDEA SUBMISSION LOGIC (Client-Side Placeholder)
+        // =======================================================
+       // =======================================================
+// 2. IDEA SUBMISSION LOGIC (Real Database API Call)
+// =======================================================
+document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('ideaSubmissionForm');
+    const messageElement = document.getElementById('submissionMessage');
+
+    form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+
+        // 1. Get the form data
+        const formData = {
+            title: document.getElementById('ideaTitle').value,
+            category: document.getElementById('category').value,
+            description: document.getElementById('ideaDescription').value,
+            // Use nullish coalescing to ensure empty optional fields are sent as null (cleaner for database)
+            impactMetric: document.getElementById('impactMetric').value || null,
+            submitterName: document.getElementById('submitterName').value || null,
+            submitterEmail: document.getElementById('submitterEmail').value || null
+        };
+        
+        // Display processing message
+        messageElement.textContent = "Submitting idea to the server...";
+        messageElement.className = 'message-warning'; 
+        messageElement.classList.remove('hidden');
+
+        // 2. REAL API INTEGRATION
+        try {
+            // Note: This connects to your running Node.js server on port 3000
+            const response = await fetch('http://localhost:3000/api/submit-idea', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData)
+            });
+
+            const data = await response.json();
+
+            if (response.ok && data.success) {
+                // SUCCESS
+                messageElement.textContent = `Idea "${formData.title}" submitted successfully! Thank you.`;
+                messageElement.className = 'message-success';
+                form.reset(); // Clear the form on success
+            } else {
+                // FAILURE (Server received request but failed to save)
+                // This usually means a required field was missing or a database error occurred
+                messageElement.textContent = data.message || "Submission failed due to a server error.";
+                messageElement.className = 'message-error';
+            }
+        } catch (error) {
+            // FAILURE (Network error, server is offline)
+            console.error('Submission Error:', error);
+            messageElement.textContent = "Could not connect to the server for submission. Please ensure your Node.js server is running!";
+            messageElement.className = 'message-error';
+        }
+    });
+});
+
+        // =======================================================
+        // 3. Smooth Scrolling for Navigation
+        // =======================================================
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') { // Ensure it's not just a placeholder
+                    e.preventDefault();
+                    document.querySelector(href).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+    </script>
+</body>
+</html>s
+</html>
